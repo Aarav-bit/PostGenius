@@ -64,6 +64,31 @@ CRITICAL RULES:
 
 Output ONLY a valid JSON object where keys are lowercase platform names and values are the post strings. No markdown, no explanation.`;
 
+      const fileToBase64 = (file: File): Promise<string> => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = (error) => reject(error);
+        });
+      };
+
+      let messagesContent: any = prompt;
+      let model = 'llama-3.3-70b-versatile';
+
+      if (uploadedFile && uploadedFile.type.startsWith('image/')) {
+        try {
+          const base64Image = await fileToBase64(uploadedFile);
+          messagesContent = [
+            { type: "text", text: prompt },
+            { type: "image_url", image_url: { url: base64Image } }
+          ];
+          model = 'llama-3.2-11b-vision-preview';
+        } catch (e) {
+          console.error("Failed to read image", e);
+        }
+      }
+
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
@@ -71,8 +96,8 @@ Output ONLY a valid JSON object where keys are lowercase platform names and valu
           'Authorization': `Bearer ${groqKey}`
         },
         body: JSON.stringify({
-          model: 'llama-3.3-70b-versatile',
-          messages: [{ role: 'user', content: prompt }],
+          model,
+          messages: [{ role: 'user', content: messagesContent }],
           temperature: 0.7,
           response_format: { type: "json_object" }
         })

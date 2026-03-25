@@ -63,57 +63,7 @@ export function HomeView({ onUpload }: HomeViewProps) {
         </div>
       </div>
 
-      {/* Media Preview Card */}
-      <div className="px-4">
-        <div className="relative w-full aspect-square rounded-[3rem] overflow-hidden bg-surface-container-high shadow-2xl">
-          <img 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhFBshkFqKKsKdOjwxXGzFUnCM_FiE_sN27fxrCrvWuslDo2xhSAch9azfSUE89ZNwDfDr-ZHhiYlzfwWqsZWJs1Xp6ApQAWQgZ9YEMMKjaRbOD6VZDsHd2NFxO0FLYP-K1hpoRd6rNStFwrVe5Lwg_xmnJCFkCIghFIcCTzQ5yCpdplbUFF9lTCyYKa01HbKV4bKHYdNqWirOnwCWWmTtOqK37BLqKsqKp7PP8qUDJx299m7_jPKEcBuBmMg2Gh1hJ7ncsoeoMceu" 
-            alt="Media preview" 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          <div className="absolute bottom-10 left-10 flex items-center gap-3">
-            <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
-            <span className="text-white text-base font-semibold tracking-wide">Processing High Quality...</span>
-          </div>
-        </div>
-      </div>
 
-      {/* Intelligence Status */}
-      <div className="px-4 space-y-6">
-        <div className="space-y-4">
-          <div className="flex justify-between items-end">
-            <span className="text-xs font-bold text-on-surface uppercase tracking-[0.15em]">AI Context Mapping</span>
-            <span className="text-3xl font-bold text-primary">84%</span>
-          </div>
-          <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-            <motion.div 
-              initial={{ width: 0 }}
-              animate={{ width: '84%' }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-              className="h-full bg-primary rounded-full"
-            />
-          </div>
-          <p className="text-on-surface-variant text-base leading-relaxed opacity-80">
-            Detecting visual themes, lighting moods, and brand alignment to generate authentic copy.
-          </p>
-        </div>
-
-        {/* Insights Grid */}
-        <div className="grid grid-cols-2 gap-4 pb-12">
-          <div className="p-8 rounded-[2.5rem] bg-white border border-slate-50 shadow-sm flex flex-col items-start">
-            <Sparkles className="w-6 h-6 text-secondary mb-4" />
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Sentiment</h4>
-            <p className="text-base font-bold text-on-surface">Inspirational</p>
-          </div>
-          <div className="p-8 rounded-[2.5rem] bg-white border border-slate-50 shadow-sm flex flex-col items-start">
-            <Palette className="w-6 h-6 text-primary mb-4" />
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Palette</h4>
-            <p className="text-base font-bold text-on-surface">Slate Teal</p>
-          </div>
-        </div>
-      </div>
     </motion.div>
   );
 }
