@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">PostGenius</string>
+    <string name="title_activity_main">PostGenius</string>
+    <string name="package_name">com.postgenius.app</string>
+    <string name="custom_url_scheme">com.postgenius.app</string>
+</resources>

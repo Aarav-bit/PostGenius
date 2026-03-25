@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-surface: #f7f6f0;
+  --color-surface-container: #edece4;
+  --color-surface-container-low: #F5F5DC;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-highest: #e8e7df;
+  --color-on-surface: #1a1c1f;
+  --color-on-surface-variant: #4a4f4f;
+  
+  --color-primary: #2F4F4F;
+  --color-primary-container: #3a6363;
+  --color-secondary: #778899;
+  --color-secondary-container: #87CEEB;
+  
+  --color-accent: #ADD8E6;
+  --color-accent-bright: #87CEEB;
+  
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+    touch-action: manipulation;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+.ethereal-gradient {
+  background-image: linear-gradient(135deg, #2F4F4F 0%, #87CEEB 100%);
+}
+
+.glass-nav {
+  background: rgba(245, 245, 220, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
