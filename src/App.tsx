@@ -76,19 +76,6 @@ Output ONLY a valid JSON object where keys are lowercase platform names and valu
       let messagesContent: any = prompt;
       let model = 'llama-3.3-70b-versatile';
 
-      if (uploadedFile && uploadedFile.type.startsWith('image/')) {
-        try {
-          const base64Image = await fileToBase64(uploadedFile);
-          messagesContent = [
-            { type: "text", text: prompt },
-            { type: "image_url", image_url: { url: base64Image } }
-          ];
-          model = 'llama-3.2-11b-vision-preview';
-        } catch (e) {
-          console.error("Failed to read image", e);
-        }
-      }
-
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
