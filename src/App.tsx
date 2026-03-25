@@ -41,26 +41,27 @@ export default function App() {
 
       const creativitySeed = Math.random().toString(36).substring(2, 8);
 
-      const prompt = `You are an elite social media copywriter known for viral, scroll-stopping content. Generate unique, creative posts for these platforms: ${options.platforms.join(', ')}.
+      const prompt = `You are a modern, top-tier social media copywriter (think fast-growing startups, trendy creators, and modern brands). Generate unique, engaging posts for these platforms: ${options.platforms.join(', ')}.
 
 STYLE GUIDELINES:
 - Tone: ${options.tone}
-- Style: ${options.style}
+- Style: ${options.style} (must feel authentic, not AI-generated)
 - Length: ${options.length}
 
-CONTEXT: ${uploadedFile ? 'The user has uploaded a photo/image to accompany these posts. Write captions that complement visual content — describe the mood, feeling, or story behind the image WITHOUT ever mentioning or referencing the file name, file type, or any technical file details.' : 'Write engaging, original posts about productivity, creativity, or personal growth.'}
+CONTEXT: Write an engaging, highly-relatable modern post about everyday productivity, creativity, lifestyle, or personal growth. DO NOT hallucinate details about sunny weather, mornings, or generic sunshine metaphors. Act like a real, cool human sharing thoughts.
 
 CRITICAL RULES:
-1. NEVER mention any filename, file extension (.jpg, .png, etc.), or technical file details in the output.
-2. Each platform's post MUST be completely unique — different hooks, angles, and wording. No copy-pasting between platforms.
-3. Use platform-specific best practices:
-   - Twitter: punchy, concise, trending hashtags (max 2-3)
-   - LinkedIn: professional storytelling, thought leadership
-   - Instagram: visual storytelling, emoji-rich, 5-8 relevant hashtags at the end
-   - Reddit: conversational, authentic, discussion-starting
-   - Facebook: relatable, shareable, community-focused
-4. Start each post with a strong hook that stops the scroll.
-5. Creativity seed for uniqueness: ${creativitySeed}
+1. NEVER mention any filename, file extensions.
+2. Each platform's post MUST be completely unique — different hooks, angles, and wording.
+3. Use platform-specific modern best practices:
+   - Twitter/X: Punchy, highly relatable, 1-2 line breaks, zero or 1 hashtag.
+   - LinkedIn: Hook-driven storytelling. Short punchy paragraphs. Zero emojis. 2-3 hashtags max at the end.
+   - Instagram: Aesthetic and minimalist caption. Strong hook first. One or two emojis max in the entire post. NO hashtag walls. Use exactly 3 highly specific, niche hashtags at the very bottom. 
+   - Reddit: Conversational, raw, zero emojis. Start a debate or ask a genuine question.
+   - Facebook: Story-driven, aimed at community interaction.
+4. NO CHEESY AI PHRASES like "Morning sunshine", "Soak up the sun", "Unlock your potential", or "Let your imagination run wild".
+5. Start each post with a strong hook that stops the scroll.
+6. Creativity seed: ${creativitySeed}
 
 Output ONLY a valid JSON object where keys are lowercase platform names and values are the post strings. No markdown, no explanation.`;
 
